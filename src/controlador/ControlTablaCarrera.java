@@ -24,7 +24,7 @@ import vista.Ventana;
  *
  * @author aaron
  */
-public class ControlTablaCarrera implements ActionListener, ItemListener,MouseListener {
+public class ControlTablaCarrera implements ActionListener, ItemListener, MouseListener {
 
     private RegistroCarreras registroCarrera;
     private PanelTablaCarrera guiCarreraT;
@@ -39,9 +39,9 @@ public class ControlTablaCarrera implements ActionListener, ItemListener,MouseLi
     public void actionPerformed(ActionEvent evento) {
 
         if (evento.getActionCommand().equalsIgnoreCase(PanelTablaCarrera.BTN_AGREGAR)) {
-            GUIRegistroCarreras agregar = new GUIRegistroCarreras(null, true, registroCarrera,guiCarreraT);
-            
-            panelB=agregar.getPanelB();
+            GUIRegistroCarreras agregar = new GUIRegistroCarreras(null, true, registroCarrera, guiCarreraT);
+
+            panelB = agregar.getPanelB();
             panelB.enableModDel(false);
             agregar.setVisible(true);
         }
@@ -50,16 +50,19 @@ public class ControlTablaCarrera implements ActionListener, ItemListener,MouseLi
                 guiCarreraT.setValores(
                         registroCarrera.getMatrizBuscar(guiCarreraT.getTxtConsulta(), 1),
                         Carrera.getEtiquetas());
+                guiCarreraT.limpiar();
             }
             if (controlBusca == 2) {
                 guiCarreraT.setValores(
                         registroCarrera.getMatrizBuscar(guiCarreraT.getTxtConsulta(), 2),
                         Carrera.getEtiquetas());
+                guiCarreraT.limpiar();
             }
             if (controlBusca == 3) {
                 guiCarreraT.setValores(
                         registroCarrera.getMatrizBuscar(guiCarreraT.getTxtConsulta(), 3),
                         Carrera.getEtiquetas());
+                guiCarreraT.limpiar();
             }
         }
 
@@ -82,32 +85,32 @@ public class ControlTablaCarrera implements ActionListener, ItemListener,MouseLi
             if (this.guiCarreraT.getCombo().equalsIgnoreCase("Nombre")) {
                 guiCarreraT.setEtiqueta("Nombre:");
                 guiCarreraT.editableCampoBuscar(true);
-                controlBusca=2;
+                controlBusca = 2;
             }
             if (this.guiCarreraT.getCombo().equalsIgnoreCase("Categoria")) {
                 guiCarreraT.setEtiqueta("Categoría:");
                 guiCarreraT.editableCampoBuscar(true);
-                controlBusca=3;
+                controlBusca = 3;
             }
         }
     }
 
-    
     public void mouseClicked(MouseEvent me) {
-        String[] datosFila=guiCarreraT.getdatosFila();
-        GUIRegistroCarreras agrega=new GUIRegistroCarreras(null, true, registroCarrera,guiCarreraT);
-        PanelCarrera panelC=agrega.getPanelC();
+        String[] datosFila = guiCarreraT.getdatosFila();
+        GUIRegistroCarreras agrega = new GUIRegistroCarreras(null, true, registroCarrera, guiCarreraT);
+        PanelCarrera panelC = agrega.getPanelC();
         panelC.setTxtSigla(datosFila[0]);
         panelC.setTxtNombre(datosFila[1]);
         panelC.setTxtCategoria(datosFila[2]);
-        panelB=agrega.getPanelB();
+        panelB = agrega.getPanelB();
         panelB.enableAgregar(false);
         panelB.enableModDel(true);
         agrega.setVisible(true);
-        
+
     }
 
     public void mousePressed(MouseEvent me) {
+        System.err.println(me.getX());
     }
 
     public void mouseReleased(MouseEvent me) {
@@ -115,7 +118,7 @@ public class ControlTablaCarrera implements ActionListener, ItemListener,MouseLi
 
     public void mouseEntered(MouseEvent me) {
     }
- 
+
     public void mouseExited(MouseEvent me) {
     }
 

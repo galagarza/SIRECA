@@ -160,6 +160,9 @@ public class PanelTablaCarrera extends javax.swing.JPanel {
         this.cboxFiltro.addItemListener(control);
         this.jtConsulta.addMouseListener(control);
     }
+    public void limpiar(){
+        txtBuscar.setText("");
+    }
 
     public static final String BTN_AGREGAR = "agregar";
     public static final String BTN_BUSCAR = "buscar";
