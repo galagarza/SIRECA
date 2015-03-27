@@ -70,10 +70,12 @@ public class ControlTablaCarrera implements ActionListener, ItemListener, MouseL
 
     public void itemStateChanged(ItemEvent itemEvent) {
         if (itemEvent.getStateChange() == ItemEvent.SELECTED) {
-            if (this.guiCarreraT.getCombo().equalsIgnoreCase("All")) {
+             System.err.println(itemEvent.getItem().toString());
+             
+            if (itemEvent.getItem().toString().equalsIgnoreCase("All")) {
 //                Agregar.mensaje("All");
                 guiCarreraT.editableCampoBuscar(false);
-
+               
                 guiCarreraT.setValores(registroCarrera.getMatrizCarreras(), Carrera.getEtiquetas());
             }
             if (this.guiCarreraT.getCombo().equalsIgnoreCase("Sigla")) {
