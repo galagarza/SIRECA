@@ -29,6 +29,7 @@ public class ControlSIRECA implements ActionListener{
     public void actionPerformed(ActionEvent evento) {
         if(evento.getActionCommand().equalsIgnoreCase(Ventana.MENU_CARRERA)){
             guiSIRECA.dispose();
+            
             GUICarrerasTable guiCarrera=new GUICarrerasTable(registroCarrera);
             guiCarrera.setVisible(true);
         }
